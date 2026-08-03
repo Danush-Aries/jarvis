@@ -164,3 +164,12 @@ MIT — see [LICENSE](./LICENSE).
 - [computer-use-agent](https://github.com/Danush-Aries/computer-use-agent) — Claude drives your desktop via VNC
 - [browser-automation-agent](https://github.com/Danush-Aries/browser-automation-agent) — Claude drives Playwright
 - [blinkchat](https://github.com/Danush-Aries/blinkchat) — realtime chat with vibes
+
+
+---
+
+<p align="center">
+  <b>⭐ If this project helps you, star it</b> — stars are how open-source tools get found, and every one directly supports more development.
+  <br/><sub>· Found a bug? Open an <a href="https://github.com/Danush-Aries/jarvis/issues">issue</a> · Want to chat? <a href="https://github.com/Danush-Aries/jarvis/discussions">Discussions</a> · Contribute? See <a href="https://github.com/Danush-Aries/jarvis/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a> ·</sub>
+</p>
+
