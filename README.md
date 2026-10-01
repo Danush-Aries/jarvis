@@ -2,8 +2,6 @@
 
 > **One core. Four interfaces. Six LLM providers. Runs on your Claude Max subscription — no API key required.**
 
-<p align="center"><img src="assets/hero.gif" alt="Jarvis wake-word demo" width="720"></p>
-
 <p align="center">
   <img src="https://img.shields.io/github/actions/workflow/status/Danush-Aries/jarvis/ci.yml?branch=main&style=flat-square" alt="build">
   <img src="https://img.shields.io/badge/license-MIT-00ff41?style=flat-square" alt="license">
@@ -14,12 +12,12 @@
 
 ## Why this exists
 
-Every "AI assistant" project I tried either burned my API budget in a weekend or locked me into one provider. Jarvis routes every task through whichever LLM is actually reachable — starting with your `claude` CLI (Claude Max/Pro OAuth, no API key), falling through Anthropic/OpenAI/Groq/Gemini/DeepSeek if keys exist, and always ending at a local Ollama fallback. It also has hands: OpenClaw drives the desktop, Hermes chains desktop+browser+shell to finish real tasks, and the voice loop wakes on "hey jarvis" with sub-second latency.
+Every "AI assistant" project I tried either burned my API budget in a weekend or locked me into one provider. Jarvis routes every task through whichever LLM is actually reachable — starting with your `claude` CLI (Claude Max/Pro OAuth, no API key), falling through Anthropic/OpenAI/Groq/Gemini/DeepSeek if keys exist, and always ending at a local Ollama fallback. It also has hands: OpenClaw drives the desktop, Hermes chains desktop+browser+shell to finish real tasks, and the voice loop wakes on "hey jarvis".
 
 ## Try it in 60 seconds
 
 ```bash
-cd ~/jarvis
+git clone https://github.com/Danush-Aries/jarvis && cd jarvis
 ./bootstrap.sh                # or: ./bootstrap.sh all  (voice + web + daemon)
 source .venv/bin/activate
 jarvis doctor                 # what's live on this box
@@ -37,12 +35,6 @@ No `ANTHROPIC_API_KEY`? If you're logged into `claude` (Max/Pro), it just works 
 - **OpenClaw desktop control** — Wayland (`wtype`/`grim`/`wl-copy`), X11 (`xdotool`/`scrot`/`xclip`), macOS built-ins; each skill self-detects and reports missing backends instead of failing silently.
 - **Wake-word voice loop** — energy-based VAD (records until you stop, not a timer), `faster-whisper` STT, edge-tts → piper → espeak TTS fallback chain.
 - **Autonomy gate** — `approval_required_for` in `config.yaml` hard-stops destructive shell (`shell.destructive`) and outbound sends (`net.send`) even in autonomous mode.
-
-## Screenshots
-
-| Terminal chat | Voice loop | Web dashboard | `jarvis doctor` |
-|---|---|---|---|
-| ![](assets/screenshot-1.png) | ![](assets/screenshot-2.png) | ![](assets/screenshot-3.png) | ![](assets/screenshot-4.png) |
 
 ## Interfaces
 
