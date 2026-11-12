@@ -17,7 +17,7 @@ jobs:
     steps:
       - name: Post polite reply
         run: |
-          BODY="Thank you for your comment! I'll review this and get back to you as soon as possible."
+          BODY="Thank you for reporting this! We will fix it. Appreciate you flagging it."
           
           if [ "${{ github.event_name }}" = "issue_comment" ]; then
             URL="${{ github.event.issue.comments_url }}"
