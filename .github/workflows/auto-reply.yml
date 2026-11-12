@@ -1,0 +1,35 @@
+name: Polite Auto-Reply
+
+on:
+  issue_comment:
+    types: [created]
+  issues:
+    types: [opened, reopened]
+  pull_request_review_comment:
+    types: [created]
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  reply:
+    if: github.actor != 'Danush-Aries'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post polite reply
+        run: |
+          BODY="Thank you for your comment! I'll review this and get back to you as soon as possible."
+          
+          if [ "${{ github.event_name }}" = "issue_comment" ]; then
+            URL="${{ github.event.issue.comments_url }}"
+          elif [ "${{ github.event_name }}" = "issues" ]; then
+            URL="${{ github.event.issue.comments_url }}"
+          elif [ "${{ github.event_name }}" = "pull_request_review_comment" ]; then
+            URL="${{ github.event.pull_request.comments_url }}"
+          elif [ "${{ github.event_name }}" = "pull_request" ]; then
+            URL="${{ github.event.pull_request.comments_url }}"
+          fi
+          
+          curl -s -X POST "$URL" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            -d "{\"body\":\"$BODY\"}" > /dev/null
